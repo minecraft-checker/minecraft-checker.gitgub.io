@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CheatCheck — проверка на читы Minecraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="glow glow--1"></div>
+    <div class="glow glow--2"></div>
+    <div class="scanline"></div>
+  </div>
+
+  <header class="header">
+    <div class="wrap header__row">
+      <a href="#" class="brand">
+        <span class="brand__mark">CC</span>
+        CHEAT<span>CHECK</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#zones">Зоны</a>
+        <a href="#programs">Инструменты</a>
+        <a href="#index-1">Индексация</a>
+        <a href="#download" class="header__cta">Скачать</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__wrap">
+        <p class="hero__label">// проверка ПК на запрещённое ПО</p>
+        <h1 class="hero__title">CHEAT<em>CHECK</em></h1>
+        <p class="hero__sub">
+          Нативный сканер для проверки компьютера на читы Minecraft.
+          Один .exe — без установки, без Electron. Сам находит .minecraft, .tlauncher, %AppData%
+          и подгружает Everything, JournalTrace, WinPrefetchView и ShellBags Analyzer.
+        </p>
+        <div class="hero__actions">
+          <a href="#download" class="btn btn--red">Скачать чекер</a>
+          <a href="#zones" class="btn btn--ghost">Что сканирует</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat"><b>1</b><span>.exe файл, 40 КБ</span></div>
+          <div class="stat"><b>5</b><span>зон сканирования</span></div>
+          <div class="stat"><b>100+</b><span>сигнатур читов</span></div>
+          <div class="stat"><b>4</b><span>инструмента в комплекте</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zones" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Что сканирует чекер</h2>
+          <p>Пути подхватываются автоматически — вручную ничего указывать не нужно</p>
+        </div>
+        <div class="zones" id="zonesGrid"></div>
+      </div>
+    </section>
+
+    <section id="programs" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Инструменты чекера</h2>
+          <p>Приложение скачивает и запускает их автоматически — кнопки есть и на сайте</p>
+        </div>
+        <div class="programs" id="programsGrid"></div>
+      </div>
+    </section>
+
+    <section id="index-1" class="section section--index">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">01</span>
+          <h2>Индексация JAR</h2>
+          <p>Поиск по размеру .jar файлов — вставь текст в Everything</p>
+        </div>
+        <div class="index-box">
+          <div class="index-box__top">
+            <span class="index-box__tag">Текст 1</span>
+            <button type="button" class="copy-btn" data-copy="index1">Копировать</button>
+          </div>
+          <pre class="index-box__text" id="index1"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="index-2" class="section section--index">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">02</span>
+          <h2>Индексация размеров</h2>
+          <p>Размеры файлов и подозрительные метки</p>
+        </div>
+        <div class="index-box">
+          <div class="index-box__top">
+            <span class="index-box__tag">Текст 2</span>
+            <button type="button" class="copy-btn" data-copy="index2">Копировать</button>
+          </div>
+          <pre class="index-box__text" id="index2"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="index-3" class="section section--index">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">03</span>
+          <h2>Индексация читов</h2>
+          <p>Названия клиентов, модов и запрещённого ПО</p>
+        </div>
+        <div class="index-box">
+          <div class="index-box__top">
+            <span class="index-box__tag">Текст 3</span>
+            <button type="button" class="copy-btn" data-copy="index3">Копировать</button>
+          </div>
+          <pre class="index-box__text index-box__text--wrap" id="index3"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="section section--download">
+      <div class="wrap">
+        <div class="download-card">
+          <div class="download-card__badge">cheatcheck.exe · windows x64</div>
+          <h2>Скачать чекер</h2>
+          <p>Нативное приложение для Windows. Антивирус может ругаться на NirSoft-утилиты — это ложное срабатывание.</p>
+          <div class="download-card__actions">
+            <a href="CheatCheck.exe" download class="btn btn--red">Скачать CheatCheck.exe</a>
+            <button type="button" id="copyPsBtn" class="btn btn--ghost">Скопировать папку проверки</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <p>© 2026 CheatCheck — инструмент для проверки на запрещённое ПО</p>
+      <p class="footer__mono">// используйте только с согласия проверяемого</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">Скопировано в буфер обмена</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
